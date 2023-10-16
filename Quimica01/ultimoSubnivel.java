@@ -9,7 +9,7 @@ public class ultimoSubnivel {
         String configuracaoEletronica = scanner.nextLine();
 
         int ultimoSubnivel = Character.getNumericValue(configuracaoEletronica.charAt(configuracaoEletronica.length()- 2));
-        System.out.println("O último subnível preenchido é " + ultimoSubnivel + "s: ");
+        System.out.println("O último subnível preenchido é: " + ultimoSubnivel + "s. ");
     }
     
 }
