@@ -1,5 +1,5 @@
 public class operadoresLogicos {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         boolean ehEstudante = true;
         boolean temNotaBoa = false;
 
@@ -11,5 +11,5 @@ public class operadoresLogicos {
         System.out.println("Precisa Melhorar: " + precisaMelhorar);
         System.out.println("Não é estudante: " + naoEhEstudante);
     }
-    
+
 }

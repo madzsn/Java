@@ -1,5 +1,5 @@
 public class recursaoExemplo {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         int numero = 5;
         int fatorial = calcularFatorial(numero);
         System.out.println("Fatorial de " + numero + " é " + fatorial + ".");
