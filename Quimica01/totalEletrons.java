@@ -11,7 +11,7 @@ public class totalEletrons {
         int totalEletrons = 0;
         for (int i = 0; i < configuracaoEletronica.length(); i++) {
             if(Character.isDigit(configuracaoEletronica.charAt(i))) {
-                totalEletrons += Character.getNumericValue(configuracaoEletronica.chatAt(i));
+                totalEletrons += Character.getNumericValue(configuracaoEletronica.charAt(i));
 
             }
         }
