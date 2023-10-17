@@ -1,4 +1,5 @@
 package VetoresiModulos;
+
 import java.util.Scanner;
 
 public class somaDigitos {
@@ -21,5 +22,3 @@ public class somaDigitos {
         return soma;
     }
 }
-
-
