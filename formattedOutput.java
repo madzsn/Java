@@ -5,8 +5,7 @@ public class formattedOutput {
         double heigth = 1.75;
 
         System.out.printf("Nome: %s, Idade %d, Altura %.2f", name, age, heigth);
-        }
+    }
 }
-
 
 // s = string; d = inteiro (int); f = float
