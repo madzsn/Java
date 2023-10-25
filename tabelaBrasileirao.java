@@ -3,8 +3,7 @@ package com.codigogrande; // Pacote onde a classe está localizada
 import java.util.Scanner; // Importa a classe Scanner do pacote java.util
 
 public class Main { // Início da definição da classe Main
-    private static int[] cartoesAmarelos;
-
+    
     public static void main(String[] args) {
         // Lista de times do Brasileirão
         String[] times = {
@@ -147,31 +146,33 @@ public class Main { // Início da definição da classe Main
         }
     }
 
-   // módulo para ordenar os times por pontuação
-    public static void ordenarPorPontuacaoECartoesEVitorias(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias) {
-        for (int i = 0; i < pontuacoes.length - 1; i++) {
-            for (int j = i + i; j < pontuacoes.length; j++) {
-                if (pontuacoes[i] < pontuacoes[j]
-                        || (pontuacoes[i] == pontuacoes[j] && cartoesAmarelos[i] > cartoesAmarelos[j] ) 
-                        || (pontuacoes[i] == pontuacoes[j] && vitorias[i] > vitorias[j])) {
+// módulo para ordenar os times por pontuação
+public static void ordenarPorPontuacaoECartoesEVitorias(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias) {
+    for (int i = 0; i < pontuacoes.length - 1; i++) {
+        for (int j = i + 1; j < pontuacoes.length; j++) {
+            if (pontuacoes[i] < pontuacoes[j] ||
+                    (pontuacoes[i] == pontuacoes[j] && vitorias[i] > vitorias[j]) ||
+                    (pontuacoes[i] == pontuacoes[j] && cartoesAmarelos[i] == cartoesAmarelos[j] && vitorias[i] > vitorias[j])) {
 
-                    int tempPontuacao = pontuacoes[i]; // variável temporária para pontuação
-                    pontuacoes[i] = pontuacoes[j]; // atualiza a pontuação do time i
-                    pontuacoes[j] = tempPontuacao; // atualiza a pontuação do time j
+                int tempPontuacao = pontuacoes[i]; // variável temporária para pontuação
+                pontuacoes[i] = pontuacoes[j]; // atualiza a pontuação do time i
+                pontuacoes[j] = tempPontuacao; // atualiza a pontuação do time j
 
-                    int tempCartoes = cartoesAmarelos[i]; // variável temporária para cartões
-                    cartoesAmarelos[i] = cartoesAmarelos[j]; // atualiza o número de cartões do time i
-                    cartoesAmarelos[j] = tempCartoes; // atualiza o número de cartões do time j
+                int tempCartoes = cartoesAmarelos[i]; // variável temporária para cartões
+                cartoesAmarelos[i] = cartoesAmarelos[j]; // atualiza o número de cartões do time i
+                cartoesAmarelos[j] = tempCartoes; // atualiza o número de cartões do time j
 
-                    int tempVitorias = vitorias[i]; // variável temporária de Vitórias
-                    vitorias[i] = vitorias[j]; // atualiza o número de vitórias do time i
-                    vitorias[j] = tempVitorias; // atualiza o número de vitórias do time j
+                int tempVitorias = vitorias[i]; // variável temporária de Vitórias
+                vitorias[i] = vitorias[j]; // atualiza o número de vitórias do time i
+                vitorias[j] = tempVitorias; // atualiza o número de vitórias do time j
 
-                    String tempTime = times[i]; // variável temporária para time
-                    times[i] = times[j]; // atualiza o time i
-                    times[j] = tempTime; // atualiza o time j
-                }
+                String tempTime = times[i]; // variável temporária para time
+                times[i] = times[j]; // atualiza o time i
+                times[j] = tempTime; // atualiza o time j
             }
+          }
         }
+      }
     }
-}
+
+
