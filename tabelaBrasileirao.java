@@ -3,7 +3,7 @@ package com.codigogrande; // Pacote onde a classe está localizada
 import java.util.Scanner; // Importa a classe Scanner do pacote java.util
 
 public class Main { // Início da definição da classe Main
-    
+
     public static void main(String[] args) {
         // Lista de times do Brasileirão
         String[] times = {
@@ -52,10 +52,11 @@ public class Main { // Início da definição da classe Main
         }
     }
 
-    public static void exibirTabela(String[] times, int[] pontuacoes,int[] cartoesAmarelos, int[] vitorias) {
+    public static void exibirTabela(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias) {
         System.out.println("\nPosição | Time | Pontuação | Cartões Amarelos | Vitórias");
         for (int i = 0; i < times.length; i++) {
-            System.out.println((i + 1) + " | " + times[i] + " | " + pontuacoes[i] + " | " + cartoesAmarelos[i] + " | " + vitorias[i]);
+            System.out.println((i + 1) + " | " + times[i] + " | " + pontuacoes[i] + " | " + cartoesAmarelos[i] + " | "
+                    + vitorias[i]);
         }
     }
 
@@ -66,11 +67,12 @@ public class Main { // Início da definição da classe Main
         }
     }
 
-    public static void editarPontuacao(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias, Scanner scanner) {
+    public static void editarPontuacao(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias,
+            Scanner scanner) {
         while (true) {
             System.out.println("\nTimes disponíveis para edição: ");
             exibirTimes(times, pontuacoes, cartoesAmarelos, vitorias);
-            System.out.println("Escolha o número do time para editar a pontuação (ou 0 para voltar): ");
+            System.out.println("\nEscolha o número do time para editar a pontuação (ou 0 para voltar): ");
 
             int posicao = scanner.nextInt();
 
@@ -78,7 +80,7 @@ public class Main { // Início da definição da classe Main
                 break;
             }
             if (posicao >= 1 && posicao <= times.length) {
-                System.out.println("Digite a nova pontuação para " + times[posicao - 1] + ": ");
+                System.out.println("\nDigite a nova pontuação para " + times[posicao - 1] + ": ");
                 int novaPontuacao = scanner.nextInt();
 
                 if (novaPontuacao >= 0) {
@@ -92,14 +94,13 @@ public class Main { // Início da definição da classe Main
         }
 
         scanner.nextLine();
-    ordenarPorPontuacaoECartoesEVitorias(times,pontuacoes,cartoesAmarelos, vitorias);
+        ordenarPorPontuacaoECartoesEVitorias(times, pontuacoes, cartoesAmarelos, vitorias);
     }
-    
 
-
-    public static void editarCartoesAmarelos(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias, Scanner scanner) {
+    public static void editarCartoesAmarelos(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias,
+            Scanner scanner) {
         while (true) {
-            System.out.println("/nTimes disponíveis para edição: ");
+            System.out.println("\nTimes disponíveis para edição: ");
             exibirTimes(times, pontuacoes, cartoesAmarelos, vitorias);
             System.out.println("\nEscolha o número do time para editar os cartões amarelos(ou 0 para voltar): ");
             int posicao = scanner.nextInt();
@@ -107,7 +108,7 @@ public class Main { // Início da definição da classe Main
                 break;
             }
             if (posicao >= 1 && posicao <= times.length) {
-                System.out.println("Digite o novo número de cartões amarelos do" + times[posicao - 1] + ": ");
+                System.out.println("\nDigite o novo número de cartões amarelos do" + times[posicao - 1] + ": ");
                 int novosCartoes = scanner.nextInt();
                 if (novosCartoes >= 0) {
                     cartoesAmarelos[posicao - 1] = novosCartoes;
@@ -121,9 +122,10 @@ public class Main { // Início da definição da classe Main
         }
     }
 
-    public static void editarVitorias(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias, Scanner scanner){
+    public static void editarVitorias(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias,
+            Scanner scanner) {
         while (true) {
-            System.out.println("/nTimes disponíveis para edição: ");
+            System.out.println("\nTimes disponíveis para edição: ");
             exibirTimes(times, pontuacoes, cartoesAmarelos, vitorias);
             System.out.println("\nEscolha o número do time para editar as vitórias(ou 0 para voltar): ");
             int posicao = scanner.nextInt();
@@ -132,7 +134,7 @@ public class Main { // Início da definição da classe Main
                 break;
             }
             if (posicao >= 1 && posicao <= times.length) {
-                System.out.println("Digite o novo número de vitórias do " + times[posicao - 1] + ": ");
+                System.out.println("\nDigite o novo número de vitórias do " + times[posicao - 1] + ": ");
                 int novasVitorias = scanner.nextInt();
                 if (novasVitorias >= 0) {
                     vitorias[posicao - 1] = novasVitorias;
@@ -146,33 +148,33 @@ public class Main { // Início da definição da classe Main
         }
     }
 
-// módulo para ordenar os times por pontuação
-public static void ordenarPorPontuacaoECartoesEVitorias(String[] times, int[] pontuacoes, int[] cartoesAmarelos, int[] vitorias) {
-    for (int i = 0; i < pontuacoes.length - 1; i++) {
-        for (int j = i + 1; j < pontuacoes.length; j++) {
-            if (pontuacoes[i] < pontuacoes[j] ||
-                    (pontuacoes[i] == pontuacoes[j] && vitorias[i] > vitorias[j]) ||
-                    (pontuacoes[i] == pontuacoes[j] && cartoesAmarelos[i] == cartoesAmarelos[j] && vitorias[i] > vitorias[j])) {
+    // módulo para ordenar os times por pontuação
+    public static void ordenarPorPontuacaoECartoesEVitorias(String[] times, int[] pontuacoes, int[] cartoesAmarelos,
+            int[] vitorias) {
+        for (int i = 0; i < pontuacoes.length - 1; i++) {
+            for (int j = i + 1; j < pontuacoes.length; j++) {
+                if (pontuacoes[i] < pontuacoes[j] ||
+                        (pontuacoes[i] == pontuacoes[j] && vitorias[i] > vitorias[j]) ||
+                        (pontuacoes[i] == pontuacoes[j] && cartoesAmarelos[i] == cartoesAmarelos[j]
+                                && vitorias[i] > vitorias[j])) {
 
-                int tempPontuacao = pontuacoes[i]; // variável temporária para pontuação
-                pontuacoes[i] = pontuacoes[j]; // atualiza a pontuação do time i
-                pontuacoes[j] = tempPontuacao; // atualiza a pontuação do time j
+                    int tempPontuacao = pontuacoes[i]; // variável temporária para pontuação
+                    pontuacoes[i] = pontuacoes[j]; // atualiza a pontuação do time i
+                    pontuacoes[j] = tempPontuacao; // atualiza a pontuação do time j
 
-                int tempCartoes = cartoesAmarelos[i]; // variável temporária para cartões
-                cartoesAmarelos[i] = cartoesAmarelos[j]; // atualiza o número de cartões do time i
-                cartoesAmarelos[j] = tempCartoes; // atualiza o número de cartões do time j
+                    int tempCartoes = cartoesAmarelos[i]; // variável temporária para cartões
+                    cartoesAmarelos[i] = cartoesAmarelos[j]; // atualiza o número de cartões do time i
+                    cartoesAmarelos[j] = tempCartoes; // atualiza o número de cartões do time j
 
-                int tempVitorias = vitorias[i]; // variável temporária de Vitórias
-                vitorias[i] = vitorias[j]; // atualiza o número de vitórias do time i
-                vitorias[j] = tempVitorias; // atualiza o número de vitórias do time j
+                    int tempVitorias = vitorias[i]; // variável temporária de Vitórias
+                    vitorias[i] = vitorias[j]; // atualiza o número de vitórias do time i
+                    vitorias[j] = tempVitorias; // atualiza o número de vitórias do time j
 
-                String tempTime = times[i]; // variável temporária para time
-                times[i] = times[j]; // atualiza o time i
-                times[j] = tempTime; // atualiza o time j
+                    String tempTime = times[i]; // variável temporária para time
+                    times[i] = times[j]; // atualiza o time i
+                    times[j] = tempTime; // atualiza o time j
+                }
             }
-          }
         }
-      }
     }
-
-
+}
