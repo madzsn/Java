@@ -119,6 +119,7 @@ public class Main { // Início da definição da classe Main
                 System.out.println("Posição inválida, tente novamente.");
             }
             scanner.nextLine();
+            ordenarPorPontuacaoECartoesEVitorias(times, pontuacoes, cartoesAmarelos, vitorias);
         }
     }
 
@@ -145,6 +146,7 @@ public class Main { // Início da definição da classe Main
                 System.out.println("Posição inválida, tente novamente.");
             }
             scanner.nextLine();
+            ordenarPorPontuacaoECartoesEVitorias(times, pontuacoes, cartoesAmarelos, vitorias);
         }
     }
 
@@ -153,11 +155,10 @@ public class Main { // Início da definição da classe Main
             int[] vitorias) {
         for (int i = 0; i < pontuacoes.length - 1; i++) {
             for (int j = i + 1; j < pontuacoes.length; j++) {
-                if (pontuacoes[i] < pontuacoes[j] ||
-                        (pontuacoes[i] == pontuacoes[j] && vitorias[i] > vitorias[j]) ||
-                        (pontuacoes[i] == pontuacoes[j] && cartoesAmarelos[i] == cartoesAmarelos[j]
-                                && vitorias[i] > vitorias[j])) {
-
+                if (pontuacoes[i] < pontuacoes[j]
+                        || (pontuacoes[i] == pontuacoes[j] && cartoesAmarelos[i] > cartoesAmarelos[j])
+                        || (pontuacoes[i] == pontuacoes[j] && cartoesAmarelos[i] == cartoesAmarelos[j]
+                                && vitorias[i] < vitorias[j])) {
                     int tempPontuacao = pontuacoes[i]; // variável temporária para pontuação
                     pontuacoes[i] = pontuacoes[j]; // atualiza a pontuação do time i
                     pontuacoes[j] = tempPontuacao; // atualiza a pontuação do time j
